@@ -35,11 +35,11 @@ export default function createUserRoutes(database: DatabaseManager) {
   router.use(userLimiter);
 
   // Dashboard and Profile
-  router.get('/dashboard', async (req, res) => {
+  router.get('/dashboard', async (req: express.Request, res: express.Response) => {
     await userController.getDashboardStats(req, res);
   });
 
-  router.get('/profile', async (req, res) => {
+  router.get('/profile', async (req: express.Request, res: express.Response) => {
     await userController.getProfile(req, res);
   });
 
@@ -59,17 +59,17 @@ export default function createUserRoutes(database: DatabaseManager) {
       .isEmail()
       .normalizeEmail()
       .withMessage('Please provide a valid email address'),
-  ], async (req, res) => {
+  ], async (req: express.Request, res: express.Response) => {
     await userController.updateProfile(req, res);
   });
 
   // Portfolio
-  router.get('/portfolio', async (req, res) => {
+  router.get('/portfolio', async (req: express.Request, res: express.Response) => {
     await userController.getPortfolio(req, res);
   });
 
   // Transactions
-  router.get('/transactions', validatePagination, async (req, res) => {
+  router.get('/transactions', validatePagination, async (req: express.Request, res: express.Response) => {
     await userController.getTransactions(req, res);
   });
 
@@ -82,7 +82,7 @@ export default function createUserRoutes(database: DatabaseManager) {
       .trim()
       .isLength({ max: 255 })
       .withMessage('Description must be less than 255 characters'),
-  ], async (req, res) => {
+  ], async (req: express.Request, res: express.Response) => {
     await userController.createDeposit(req, res);
   });
 
@@ -95,17 +95,17 @@ export default function createUserRoutes(database: DatabaseManager) {
       .trim()
       .isLength({ max: 255 })
       .withMessage('Description must be less than 255 characters'),
-  ], async (req, res) => {
+  ], async (req: express.Request, res: express.Response) => {
     await userController.createWithdrawal(req, res);
   });
 
   // Market Data
-  router.get('/market-data', async (req, res) => {
+  router.get('/market-data', async (req: express.Request, res: express.Response) => {
     await userController.getMarketData(req, res);
   });
 
   // Account Statistics
-  router.get('/stats', async (req, res) => {
+  router.get('/stats', async (req: express.Request, res: express.Response) => {
     await userController.getAccountStats(req, res);
   });
 

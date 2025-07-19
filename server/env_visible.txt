@@ -1,0 +1,73 @@
+# =================================
+# TRADENET.IM DEVELOPMENT ENVIRONMENT
+# =================================
+
+# Server Configuration
+PORT=3001
+NODE_ENV=development
+
+# Security & Authentication
+JWT_SECRET=TN_dev_jwt_2024_development_key_only
+JWT_ACCESS_TOKEN_EXPIRY=15m
+JWT_REFRESH_TOKEN_EXPIRY=7d
+
+# Database Configuration
+DB_PATH=./database/tradenet_development.db
+DB_BACKUP_PATH=./backups/
+
+# CORS Configuration
+CORS_ORIGIN=http://localhost:3000
+CORS_CREDENTIALS=true
+
+# Rate Limiting (relaxed for development)
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX=200
+AUTH_RATE_LIMIT_MAX=10
+LOGIN_RATE_LIMIT_MAX=5
+
+# Email Configuration (development/testing)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_SECURE=true
+EMAIL_USER=dev@tradenet.im
+EMAIL_PASS=your-dev-email-password
+EMAIL_FROM=TradeNet Dev <dev@tradenet.im>
+
+# External API Keys (development/sandbox)
+ALPHA_VANTAGE_API_KEY=demo
+BINANCE_API_KEY=your-binance-testnet-key
+BINANCE_API_SECRET=your-binance-testnet-secret
+POLYGON_API_KEY=your-polygon-dev-key
+FINNHUB_API_KEY=your-finnhub-sandbox-key
+
+# Logging
+LOG_LEVEL=debug
+LOG_FILE_PATH=./logs/tradenet_dev.log
+ERROR_LOG_PATH=./logs/error_dev.log
+
+# Session Management
+SESSION_SECRET=TN_dev_session_secret_2024
+SESSION_TIMEOUT=3600000
+
+# Application Settings
+APP_NAME=TradeNet Development
+APP_VERSION=1.0.0-dev
+APP_URL=http://localhost:3000
+API_BASE_URL=http://localhost:3001
+
+# Admin Settings
+DEFAULT_ADMIN_EMAIL=admin@trade.im
+DEFAULT_ADMIN_PASSWORD=admin123
+
+# Database Backup (disabled in dev)
+BACKUP_ENABLED=false
+BACKUP_INTERVAL=86400000
+BACKUP_RETENTION_DAYS=7
+
+# Development Tools
+DEBUG=true
+VERBOSE_LOGGING=true
+
+# File Upload Limits
+MAX_FILE_SIZE=10485760
+UPLOAD_PATH=./uploads/

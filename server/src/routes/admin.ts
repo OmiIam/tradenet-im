@@ -34,63 +34,63 @@ export default function createAdminRoutes(database: DatabaseManager) {
   router.use(adminLimiter);
 
   // Dashboard and Statistics
-  router.get('/stats', async (req, res) => {
+  router.get('/stats', async (req: express.Request, res: express.Response) => {
     await adminController.getDashboardStats(req, res);
   });
 
   // User Management
-  router.get('/users', validatePagination, async (req, res) => {
+  router.get('/users', validatePagination, async (req: express.Request, res: express.Response) => {
     await adminController.getAllUsers(req, res);
   });
 
-  router.get('/users/:userId', validateUserId, async (req, res) => {
+  router.get('/users/:userId', validateUserId, async (req: express.Request, res: express.Response) => {
     await adminController.getUserById(req, res);
   });
 
-  router.put('/users/:userId', validateUserUpdate, async (req, res) => {
+  router.put('/users/:userId', validateUserUpdate, async (req: express.Request, res: express.Response) => {
     await adminController.updateUser(req, res);
   });
 
-  router.delete('/users/:userId', validateUserId, async (req, res) => {
+  router.delete('/users/:userId', validateUserId, async (req: express.Request, res: express.Response) => {
     await adminController.deleteUser(req, res);
   });
 
-  router.put('/users/:userId/status', validateUserStatus, async (req, res) => {
+  router.put('/users/:userId/status', validateUserStatus, async (req: express.Request, res: express.Response) => {
     await adminController.toggleUserStatus(req, res);
   });
 
   // Balance Management
-  router.post('/users/:userId/balance', validateBalanceAdjustment, async (req, res) => {
+  router.post('/users/:userId/balance', validateBalanceAdjustment, async (req: express.Request, res: express.Response) => {
     await adminController.adjustUserBalance(req, res);
   });
 
-  router.get('/users/:userId/transactions', validateUserId, validatePagination, async (req, res) => {
+  router.get('/users/:userId/transactions', validateUserId, validatePagination, async (req: express.Request, res: express.Response) => {
     await adminController.getUserTransactions(req, res);
   });
 
-  router.post('/users/:userId/transactions', validateTransactionCreate, async (req, res) => {
+  router.post('/users/:userId/transactions', validateTransactionCreate, async (req: express.Request, res: express.Response) => {
     await adminController.createTransaction(req, res);
   });
 
   // Portfolio Management
-  router.get('/users/:userId/portfolio', validateUserId, async (req, res) => {
+  router.get('/users/:userId/portfolio', validateUserId, async (req: express.Request, res: express.Response) => {
     await adminController.getUserPortfolio(req, res);
   });
 
-  router.put('/users/:userId/portfolio', validatePortfolioUpdate, async (req, res) => {
+  router.put('/users/:userId/portfolio', validatePortfolioUpdate, async (req: express.Request, res: express.Response) => {
     await adminController.updateUserPortfolio(req, res);
   });
 
-  router.post('/users/:userId/portfolio/positions', validatePositionCreate, async (req, res) => {
+  router.post('/users/:userId/portfolio/positions', validatePositionCreate, async (req: express.Request, res: express.Response) => {
     await adminController.addPortfolioPosition(req, res);
   });
 
   // Global Data Access
-  router.get('/transactions', validatePagination, async (req, res) => {
+  router.get('/transactions', validatePagination, async (req: express.Request, res: express.Response) => {
     await adminController.getAllTransactions(req, res);
   });
 
-  router.get('/portfolios', validatePagination, async (req, res) => {
+  router.get('/portfolios', validatePagination, async (req: express.Request, res: express.Response) => {
     await adminController.getAllPortfolios(req, res);
   });
 

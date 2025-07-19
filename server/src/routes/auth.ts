@@ -28,28 +28,28 @@ export default function createAuthRoutes(database: DatabaseManager) {
   const authController = new AuthController(database);
 
   // Public routes
-  router.post('/register', authLimiter, validateRegistration, async (req, res) => {
+  router.post('/register', authLimiter, validateRegistration, async (req: express.Request, res: express.Response) => {
     await authController.register(req, res);
   });
 
-  router.post('/login', loginLimiter, validateLogin, async (req, res) => {
+  router.post('/login', loginLimiter, validateLogin, async (req: express.Request, res: express.Response) => {
     await authController.login(req, res);
   });
 
-  router.post('/refresh', authLimiter, async (req, res) => {
+  router.post('/refresh', authLimiter, async (req: express.Request, res: express.Response) => {
     await authController.refreshToken(req, res);
   });
 
   // Protected routes
-  router.post('/logout', authenticateToken, async (req, res) => {
+  router.post('/logout', authenticateToken, async (req: express.Request, res: express.Response) => {
     await authController.logout(req, res);
   });
 
-  router.get('/me', authenticateToken, async (req, res) => {
+  router.get('/me', authenticateToken, async (req: express.Request, res: express.Response) => {
     await authController.getMe(req, res);
   });
 
-  router.post('/change-password', authenticateToken, async (req, res) => {
+  router.post('/change-password', authenticateToken, async (req: express.Request, res: express.Response) => {
     await authController.changePassword(req, res);
   });
 
