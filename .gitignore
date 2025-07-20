@@ -1,4 +1,13 @@
 node_modules/
 .next/
 .env
-.env.* 
+.env.*
+*.db
+*.sqlite
+*.sqlite3
+.DS_Store
+*.log
+dist/
+build/
+coverage/
+.nyc_output/ 
