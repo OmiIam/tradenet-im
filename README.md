@@ -234,3 +234,4 @@ This project is for educational and demonstration purposes.
 5. **Start managing users and portfolios**!
 
 The platform is now ready for use with full admin capabilities for managing users, balances, and portfolios.# tradenet_im
+# tradenet-im
